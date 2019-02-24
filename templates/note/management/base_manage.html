@@ -1,0 +1,16 @@
+{%extends 'note/base.html'%}
+{%load staticfiles%}
+{%block navbar%}
+<li class="active"><a href="#">查看修改</a></li>
+<li ><a href="#">新增记录</a></li>
+{%endblock%}
+{%block left_navbar_header%}
+我的记录
+{%endblock%}
+{%block left_navbar%}
+<li {%block active_manage_wbz%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>未报账记录</span></a></li>
+<li {%block active_manage_ybz%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>已报账记录</span></a></li>
+<li {%block active_manage_sh%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>售后单位</span></a></li>
+<li {%block active_manage_lx%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>设备类型</span></a></li>
+<li {%block active_manage_xh%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>设备型号</span></a></li>
+{%endblock%}

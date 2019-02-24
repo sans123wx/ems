@@ -1,0 +1,157 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>设备管理系统</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="{%static 'note/bower_components/bootstrap/dist/css/bootstrap.min.css'%}">
+  <link rel="stylesheet" href="{%static 'note/bower_components/font-awesome/css/font-awesome.min.css'%}">
+  <link rel="stylesheet" href="{%static 'note/bower_components/Ionicons/css/ionicons.min.css'%}">
+  <link rel="stylesheet" href="{%static 'note/dist/css/AdminLTE.min.css'%}">
+  <link rel="stylesheet" href="{%static 'note/dist/css/skins/_all-skins.min.css'%}">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  {%block head%}{%endblock%}
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+	<!-- 上方导航栏 -->
+  <header class="main-header">
+  	<!-- logo部分 -->
+    <a href="{%url 'wbz_all'%}" class="logo">
+    	<!-- 折叠时 -->
+      <span class="logo-mini">EMS</span>
+      <!-- 展开时 -->
+      <span class="logo-lg">设备管理系统</span>
+    </a>
+
+    <!-- 导航部分 -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <!-- 小屏幕折叠部分 -->
+       <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+        	{%block navbar%}{%endblock%}
+          {%if request.user.is_authenticated%}
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="media/note/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{request.user.first_name}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="user-header">
+                <img src="media/note/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  {{request.user.groups.first}} - {{request.user.first_name}}
+                </p>
+              </li>
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">新增</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">查看</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">报账</a>
+                  </div>
+                </div>
+              </li>
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="{%url 'my_note_wbz'%}" class="btn btn-default btn-flat">管理</a>
+                </div>
+                <div class="pull-right">
+                  <a href="{%url 'logout'%}" class="btn btn-default btn-flat">注销</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          {%else%}
+          <li><a href="{%url 'login'%}">登录</a></li>
+          {%endif%}
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- 左边导航栏 -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <!-- 用户信息 -->
+       {%if request.user.is_authenticated%}
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="media/note/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>{{request.user.first_name}}</p>
+          <span><i class="fa fa-circle text-success"></i> 在线</span>
+        </div>
+      </div>
+      {%else%}
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="media/note/img/avatar5.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>你好，朋友</p>
+          <span> 欢迎参观</span>
+        </div>
+      </div>
+      {%endif%}
+      <!-- 导航部分 -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">{%block left_navbar_header%}{%endblock%}</li>
+        <!-- 选项 -->
+        {%block left_navbar%}{%endblock%}
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- 内容区域 -->
+  <div class="content-wrapper">
+  	<!-- 位子信息 -->
+    <section class="content-header">
+      <h1>
+        {%block content-header-1%}{%endblock%}
+        <small>{%block content-header-1-content%}{%endblock%}</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{%url 'wbz_all'%}"><i class="fa fa-dashboard"></i> {%block content-header%}{%endblock%}</a></li>
+        <li><a href="{%block content-header-href%}{%endblock%}">{%block content-header-2%}{%endblock%}</a></li>
+        <li class="active">{%block content-header-2-content%}{%endblock%}</li>
+      </ol>
+    </section>
+    <!-- 具体内容 -->
+    <section class="content container-fluid">
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>作者:</b> wx
+    </div>
+    <strong>Copyright &copy; <a href="http://www.tcsisu.com/net/">现代教育技术中心</a></strong>
+  </footer>
+</div>
+	<!-- script区域 -->
+<script src="{%static 'note/bower_components/jquery/dist/jquery.min.js'%}"></script>
+<script src="{%static 'note/bower_components/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+<script src="{%static 'note/dist/js/adminlte.min.js'%}"></script>
+{%block script%}{%endblock%}
+</body>
+</html>
