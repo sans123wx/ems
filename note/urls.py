@@ -13,6 +13,9 @@ urlpatterns = [
 		path('manage_xh' , manage_xh , name = 'manage_xh'),
 		#新增记录
 		path('new_note' , new_note , name = 'new_note'),
+		path('new_customer' , new_customer , name = 'new_customer'),
+		path('new_unit_type' , new_unit_type , name = 'new_unit_type'),
+		path('new_unit_model' , new_unit_model , name = 'new_unit_model'),
 		#x新增记录ajax
 		path('ajax_get_unit_types' , ajax_get_unit_types , name = 'ajax_get_unit_types'),
 		path('ajax_get_unit_models' , ajax_get_unit_models , name = 'ajax_get_unit_models'),

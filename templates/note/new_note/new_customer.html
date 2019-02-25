@@ -1,0 +1,51 @@
+{%extends 'note/new_note/base_new_note.html'%}
+{%load staticfiles%}
+{%block active_new_sh%}
+class='active'
+{%endblock%}
+{%block content-header-1%}
+新增售后单位
+{%endblock%}
+{%block content-header-1-content%}
+新增
+{%endblock%}
+{%block content-header%}
+新增记录
+{%endblock%}
+{%block content-header-2%}
+新增售后单位
+{%endblock%}
+{%block content-header-2-content%}
+新增
+{%endblock%}
+{%block content%}
+<div class='row'>
+<div class="col-md-6 col-md-offset-3">
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">新增售后单位</h3>
+            </div>
+            <form class="form-horizontal" action="{%url 'new_customer'%}" method="post">
+            	{%csrf_token%}
+              <div class="box-body">
+              	{%for field in form%}
+                <div class="form-group">      	
+                		<label for={{field.id_for_label}} class="col-sm-2 control-label">{{field.label}}</label>
+                		<div class="col-sm-10">
+						{{field}}
+					</div>
+						<p>{{field.errors.as_text}}</p>                 
+              </div>
+              {%endfor%}
+          	</div>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-info pull-right">提交</button>
+              </div>
+            </form>
+ </div>
+</div>
+</div>
+{%endblock%}
+{%block script%}
+<script src="{%static 'note/bower_components/fastclick/lib/fastclick.js'%}"></script>
+{%endblock%}

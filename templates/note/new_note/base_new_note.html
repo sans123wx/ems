@@ -8,8 +8,8 @@
 新增记录
 {%endblock%}
 {%block left_navbar%}
-<li {%block active_new_note%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>新建维修记录</span></a></li>
-<li {%block active_new_sh%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>新建售后单位</span></a></li>
-<li {%block active_new_lx%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>新建设备类型</span></a></li>
-<li {%block active_new_xh%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>新建设备型号</span></a></li>
+<li {%block active_new_note%}{%endblock%}><a href="{%url 'new_note'%}"><i class="fa fa-table"></i> <span>新建维修记录</span></a></li>
+<li {%block active_new_sh%}{%endblock%}><a href="{%url 'new_customer'%}"><i class="fa fa-table"></i> <span>新建售后单位</span></a></li>
+<li {%block active_new_lx%}{%endblock%}><a href="{%url 'new_unit_type'%}"><i class="fa fa-table"></i> <span>新建设备类型</span></a></li>
+<li {%block active_new_xh%}{%endblock%}><a href="{%url 'new_unit_model'%}"><i class="fa fa-table"></i> <span>新建设备型号</span></a></li>
 {%endblock%}

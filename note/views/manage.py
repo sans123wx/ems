@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from ..models import *
 
+@login_required
 def manage_wbz(request):
 	user = request.user
 	notes = Note.objects.filter(bz = False , owner = user)
@@ -8,6 +10,7 @@ def manage_wbz(request):
 	context['notes'] = notes
 	return render(request , 'note/management/manage_wbz.html' , context)
 
+@login_required
 def manage_sh(request):
 	user = request.user
 	groups = user.groups.all()
@@ -20,6 +23,7 @@ def manage_sh(request):
 	context['notes'] = customers
 	return render(request , 'note/management/manage_sh.html' , context)
 
+@login_required
 def manage_lx(request):
 	user = request.user
 	groups = user.groups.all()
@@ -32,6 +36,7 @@ def manage_lx(request):
 	context['notes'] = unit_types
 	return render(request , 'note/management/manage_lx.html' , context)
 
+@login_required
 def manage_xh(request):
 	user = request.user
 	groups = user.groups.all()

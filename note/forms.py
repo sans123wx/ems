@@ -22,3 +22,30 @@ class NoteForm(forms.ModelForm):
                 'dxsj':forms.DateInput(attrs={'class':'form-control','type':'date'}),
                 'fxsj':forms.DateInput(attrs={'class':'form-control','type':'date'}),
 		}
+
+class CustomerForm(forms.ModelForm):
+	class Meta:
+		model = Customer
+		fields = '__all__'
+		widgets = {
+				'title':forms.TextInput(attrs={'class':'form-control'}),
+				'group':forms.Select(attrs={'class':'form-control'}),
+		}
+
+class Unit_typeForm(forms.ModelForm):
+	class Meta:
+		model = Unit_type
+		fields = '__all__'
+		widgets = {
+				'title':forms.TextInput(attrs={'class':'form-control'}),
+				'sh':forms.Select(attrs={'class':'form-control'}),
+		}
+
+class Unit_modelForm(forms.ModelForm):
+	class Meta:
+		model = Unit_model
+		fields = ['title' , 'lx']
+		widgets = {
+				'title':forms.TextInput(attrs={'class':'form-control'}),
+				'lx':forms.Select(attrs={'class':'form-control'}),
+		}
