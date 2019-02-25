@@ -10,7 +10,7 @@ def login(request):
         if form.is_valid():
             user = form.cleaned_data['user']
             auth.login(request , user)
-            return redirect(reverse('wbz_all'))
+            return redirect(reverse('manage_wbz'))
     else:
         form = LoginForm()
     context = {}

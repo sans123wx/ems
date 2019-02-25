@@ -7,5 +7,10 @@ urlpatterns = [
 		path('wbz_jsj' , wbz_jsj , name = 'wbz_jsj'),
 		path('wbz_wl' , wbz_wl , name = 'wbz_wl'),
 		#管理页面
-		path('my_note_wbz' , my_note_wbz , name = 'my_note_wbz'),
+		path('manage_wbz' , manage_wbz , name = 'manage_wbz'),
+		path('manage_sh' , manage_sh , name = 'manage_sh'),
+		path('manage_lx' , manage_lx , name = 'manage_lx'),
+		path('manage_xh' , manage_xh , name = 'manage_xh'),
+		#新增记录
+		path('new_note' , new_note , name = 'new_note'),
 ]

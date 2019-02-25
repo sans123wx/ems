@@ -3,14 +3,14 @@
 {%block head%}
 <link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
 {%endblock%}
-{%block active_manage_wbz%}
+{%block active_manage_lx%}
 class="active"
 {%endblock%}
 {%block content-header-1%}
 我的记录
 {%endblock%}
 {%block content-header-1-content%}
-未报账记录
+设备型号
 {%endblock%}
 {%block content-header%}
 管理查看
@@ -19,7 +19,7 @@ class="active"
 我的记录
 {%endblock%}
 {%block content-header-2-content%}
-未报账
+设备型号
 {%endblock%}
 {%block content%}
 <div class="row">
@@ -27,45 +27,29 @@ class="active"
           <!-- 数据表格 -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">统计信息</h3>
+              <h3 class="box-title">设备型号</h3>
             </div>
             <div class="box-body">
               <div class="table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>日期</th>
-                  <th>类型</th>
+                  <th>名称</th>
                   <th>型号</th>
-                  <th>故障</th>
-                  <th>单价</th>
-                  <th>数量</th>
-                  <th>地点</th>
-                  <th>处理</th>
-                  <th>状态</th>
-                  <th>合计</th>
+                  <th>售后单位</th>
+                  <th>部门</th>
                   <th>操作</th>
-
                 </tr>
                 </thead>
                 <tbody>
                 {%for note in notes%}
                 <tr>
-                  <td>{{note.date}}</td>
-                  <td>{{note.lb}}</td>
-                  <td>{{note.xh}}</td>
-                  <td>{{note.gz}}</td>
-                  <td>{{note.jg}}</td>
-                  <td>{{note.sl}}</td>
-                  <td>{{note.dd}}</td>
-                  <td>{{note.fs}}</td>
-                  <td>{{note.zt}}</td>
-                  <td>{{note.hj}}</td>
-                  <td>操作</td>
-
+                  <td>{{note.title}}</td>
+                  <td>{{note.lx.title}}</td>
+                  <td>{{note.lx.sh.title}}</td>
+                  <td>{{note.lx.sh.group.name}}</td>
+                  <td>修改</td> 
                 </tr>
-                {%empty%}
-                <p>没有记录</p>
                 {%endfor%}
                 </tbody>
               </table>
