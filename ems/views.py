@@ -15,7 +15,6 @@ def login(request):
         form = LoginForm()
     context = {}
     context['form'] = form
-    print(form)
     return render(request , 'login/login.html' , context)
 
 def logout_view(request):

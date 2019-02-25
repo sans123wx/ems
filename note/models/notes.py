@@ -18,7 +18,7 @@ class Note(models.Model):
     jg = models.FloatField(verbose_name = '价格')
     sl = models.IntegerField(verbose_name = '数量')
     dd = models.CharField(max_length = 30 , verbose_name = '地点')
-    bz = models.BooleanField(verbose_name = '报账')
+    bz = models.BooleanField(default = False , verbose_name = '报账')
     fs = models.CharField(max_length = 30 , verbose_name = '处理')
     sh = models.ForeignKey(Customer , on_delete = models.DO_NOTHING ,
                            verbose_name = '售后')

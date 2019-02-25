@@ -13,4 +13,7 @@ urlpatterns = [
 		path('manage_xh' , manage_xh , name = 'manage_xh'),
 		#新增记录
 		path('new_note' , new_note , name = 'new_note'),
+		#x新增记录ajax
+		path('ajax_get_unit_types' , ajax_get_unit_types , name = 'ajax_get_unit_types'),
+		path('ajax_get_unit_models' , ajax_get_unit_models , name = 'ajax_get_unit_models'),
 ]

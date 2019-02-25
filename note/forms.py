@@ -4,7 +4,7 @@ from .models import *
 class NoteForm(forms.ModelForm):
 	class Meta:
 		model = Note
-		fields = ['date' , 'lb' , 'xh' , 'gz' , 'jg' , 'sl' , 'dd' , 'fs' , 'sh' , 'sn' , 'shry' , 'shdh' , 'tzsj' , 'dxsj' , 'fxsj']
+		fields = ['date' , 'sh', 'lb' , 'xh' , 'gz' , 'jg' , 'sl' , 'dd' , 'fs' , 'sn' , 'shry' , 'shdh' , 'tzsj' , 'dxsj' , 'fxsj']
 		widgets = {
 				'date':forms.DateInput(attrs={'class':'form-control'}),
 				'lb':forms.Select(attrs={'class':'form-control'}),
