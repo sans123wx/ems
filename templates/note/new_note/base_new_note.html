@@ -1,7 +1,7 @@
 {%extends 'note/base.html'%}
 {%load staticfiles%}
 {%block navbar%}
-<li ><a href="#">查看修改</a></li>
+<li ><a href="{%url 'manage_wbz'%}">查看修改</a></li>
 <li class="active"><a href="{%url 'new_note'%}">新增记录</a></li>
 {%endblock%}
 {%block left_navbar_header%}
