@@ -23,3 +23,7 @@ class CustomerAdmin(admin.ModelAdmin):
 @admin.register(Report_time)
 class Report_timeAdmin(admin.ModelAdmin):
     list_display = ('title' , 'bz'  , 'bzsj' , 'sh' , 'used')
+
+@admin.register(Permissions)
+class PermissionsAdmin(admin.ModelAdmin):
+    list_display = ('user' , 'bz_dj' , 'bz_wl' , 'bz_jsj')

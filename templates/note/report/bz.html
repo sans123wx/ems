@@ -1,0 +1,51 @@
+{%extends 'note/base.html'%}
+{%load staticfiles%}
+{%block head%}
+<link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+{%endblock%}
+{%block navbar%}
+<li class="active"><a href="{%url 'bz'%}">报账</a></li>
+{%endblock%}
+{%block left_navbar_header%}
+售后单位
+{%endblock%}
+{%block left_navbar%}
+<ul class="sidebar-menu" data-widget="tree">
+	{%for key , value in list_info%}
+		{%if forloop.first%}
+        <li class="treeview active">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>{{key.name}}</span>
+            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+          	{%for c in key.set__customer.all()%}
+          	{%if forloop.first%}
+            <li class="active"><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            {%else%}
+            <li><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            {%endif%}
+            {%endfor%}
+          </ul>
+        </li>
+        {%else%}
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>{{key.name}}</span>
+            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+          </a>
+          <ul class="treeview-menu">
+          	{%for c in key.set__customer.all()%}
+            <li><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            {%endfor%}
+          </ul>
+        </li>
+
+        {%endif%}
+      </ul>
+      {%endfor%}
+{%endblock%}

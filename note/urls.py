@@ -19,4 +19,6 @@ urlpatterns = [
 		#x新增记录ajax
 		path('ajax_get_unit_types' , ajax_get_unit_types , name = 'ajax_get_unit_types'),
 		path('ajax_get_unit_models' , ajax_get_unit_models , name = 'ajax_get_unit_models'),
+		#报账
+		path('bz' , bz , name = 'bz'),
 ]
