@@ -10,42 +10,55 @@
 售后单位
 {%endblock%}
 {%block left_navbar%}
-<ul class="sidebar-menu" data-widget="tree">
-	{%for key , value in list_info%}
-		{%if forloop.first%}
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>{{key.name}}</span>
+    {%for g in list_groups%}
+    {%if forloop.first%}
+      <li class="active treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>{{g.name}}</span>
             <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
           </a>
           <ul class="treeview-menu">
-          	{%for c in key.set__customer.all()%}
-          	{%if forloop.first%}
-            <li class="active"><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            {%for c in g.customer_set.all%}
+            {%if forloop.first%}
+            <li class="active"><a href="#">{{c.title}}</a></li>
             {%else%}
-            <li><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            <li><a href="#">{{c.title}}</a></li>
             {%endif%}
             {%endfor%}
           </ul>
         </li>
-        {%else%}
-         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>{{key.name}}</span>
+      {%else%}
+      <li class=" treeview">
+          <a href="#"><i class="fa fa-link"></i> <span>{{g.name}}</span>
             <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
           </a>
           <ul class="treeview-menu">
-          	{%for c in key.set__customer.all()%}
-            <li><a href="#"><i class="fa fa-circle-o"></i>{{c.title}}</a></li>
+            {%for c in g.customer_set.all%}
+            <li><a href="#">{{c.title}}</a></li>
             {%endfor%}
           </ul>
         </li>
-
-        {%endif%}
-      </ul>
+      {%endif%}
       {%endfor%}
+{%endblock%}
+{%block content-header-1%}
+报账
+{%endblock%}
+{%block content-header-1-content%}
+某部门
+{%endblock%}
+{%block content-header%}
+首页
+{%endblock%}
+{%block content-header-2%}
+报账
+{%endblock%}
+{%block content-header-2-content%}
+某部门
+{%endblock%}
+{%block content%}
+
 {%endblock%}
