@@ -1,0 +1,17 @@
+{%for note in notes%}
+                <tr>
+                  <td><input type="checkbox" name="ckb" value="{{note.id}}" checked></td>
+                  <td>{{note.date}}</td>
+                  <td>{{note.lb}}</td>
+                  <td>{{note.xh}}</td>
+                  <td>{{note.gz}}</td>
+                  <td>{{note.jg}}</td>
+                  <td>{{note.sl}}</td>
+                  <td>{{note.dd}}</td>
+                  <td>{{note.fs}}</td>
+                  <td>{{note.zt}}</td>
+                  <td>{{note.hj}}</td>
+                </tr>
+                {%empty%}
+                <p>没有记录</p>
+                {%endfor%}

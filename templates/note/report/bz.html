@@ -12,8 +12,8 @@
 {%block left_navbar%}
     {%for g in list_groups%}
     {%if forloop.first%}
-      <li class="active treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>{{g.name}}</span>
+      <li class="active treeview menu-open">
+          <a href="#"><i class="fa fa-link"></i> <span class="forname" value="{{g.name}}">{{g.name}}</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -21,23 +21,23 @@
           <ul class="treeview-menu">
             {%for c in g.customer_set.all%}
             {%if forloop.first%}
-            <li class="active"><a href="#">{{c.title}}</a></li>
+            <li class="active forchoice" value="{{c.id}}"><a href="#">{{c.title}}</a></li>
             {%else%}
-            <li><a href="#">{{c.title}}</a></li>
+            <li class="forchoice" value="{{c.id}}"><a href="#">{{c.title}}</a></li>
             {%endif%}
             {%endfor%}
           </ul>
         </li>
       {%else%}
       <li class=" treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>{{g.name}}</span>
+          <a href="#"><i class="fa fa-link"></i> <span class="forname" value="{{g.name}}">{{g.name}}</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
             {%for c in g.customer_set.all%}
-            <li><a href="#">{{c.title}}</a></li>
+            <li class="forchoice" value="{{c.id}}"><a href="#">{{c.title}}</a></li>
             {%endfor%}
           </ul>
         </li>
@@ -60,5 +60,143 @@
 某部门
 {%endblock%}
 {%block content%}
-
+<form class="form-horizontal" action="{%url 'bz'%}" method="post">
+  {%csrf_token%}
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="form-group">  
+                  <div class="box-body">      
+                    <label for="id_title" class="col-sm-2 control-label">名称</label>
+                    <div class="col-sm-10"><input type="text" name="title" class="form-control" id="id_title"></div>              
+              </div>
+            </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="form-group"> 
+      <div class="box-body">        
+                    <label for="id_date" class="col-sm-2 control-label">日期</label>
+                    <div class="col-sm-10"><input type="date" name="date" class="form-control" id="id_date"></div>              
+              </div>
+              </div>
+    </div>
+    <input type="text" name="sh" hidden id='id_sh'>    
+  </div>
+<div class="row">
+        <div class="col-xs-12">
+          <!-- 数据表格 -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">统计信息</h3>
+            </div>
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>选择</th>
+                  <th>日期</th>
+                  <th>类型</th>
+                  <th>型号</th>
+                  <th>故障</th>
+                  <th>单价</th>
+                  <th>数量</th>
+                  <th>地点</th>
+                  <th>处理</th>
+                  <th>状态</th>
+                  <th>合计</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%for note in notes%}
+                <tr>
+                  <td><input type="checkbox" name="ckb" value="{{note.id}}" checked></td>
+                  <td>{{note.date}}</td>
+                  <td>{{note.lb}}</td>
+                  <td>{{note.xh}}</td>
+                  <td>{{note.gz}}</td>
+                  <td>{{note.jg}}</td>
+                  <td>{{note.sl}}</td>
+                  <td>{{note.dd}}</td>
+                  <td>{{note.fs}}</td>
+                  <td>{{note.zt}}</td>
+                  <td>{{note.hj}}</td>
+                </tr>
+                {%empty%}
+                <p>没有记录</p>
+                {%endfor%}
+                </tbody>
+              </table>
+              </div>
+              <div class="btn-group pull-right">
+                <button class="btn btn-info" formaction="{%url 'dy'%}">打印页面</button>
+                <button class="btn btn-info" formaction="{%url 'download'%}">下载excel</button>
+                <button class="btn btn-info" onclick="return report_waring()">报账</button>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+      </div>
+</form>
+{%endblock%}
+{%block script%}
+<script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+<script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
+<!-- 设置表格 -->
+<script>
+  $(function () {
+    $('#example1').DataTable({
+      'paging'      : false,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false
+    })
+  })
+</script>
+<!-- ajax获取数据 -->
+<script type="text/javascript">
+  $("li.forchoice").click(function(){
+      var customer_id = $(this).val()
+      $(".active:not(.paginate_button)").removeClass('active')
+      $(this).addClass('active')
+      $(this).parent().parent().addClass('active')
+      $.ajax({
+        url:"{%url 'ajax_get_notes'%}",
+        data:{"customer_id":customer_id},
+        success:function(data){
+          $("tbody").html(data);
+          var context = $("li.active span.forname").text();
+          $("h1 small").text(context);
+          var info_sh = $("li.active.forchoice").val();
+          $("#id_sh").val(info_sh);
+          console.log($("#id_sh").val())
+        }
+      })
+  }
+    )
+</script>
+<!-- 提交警告 -->
+<script type="text/javascript">
+  function report_waring(){
+    var info = confirm("是否确定报账?");
+    var title_value = $("#id_title").val();
+    var date_value = $("#id_date").val();
+    if(title_value && date_value){
+      return info;
+    }
+    else{
+      alert('请填写时间和名称');
+      return false;
+    }
+  }
+</script>
+<!-- 初始化 -->
+<script type="text/javascript">
+  var context = $("li.active span.forname").text()
+  $("h1 small").text(context)
+  var info_sh = $("li.active.forchoice").val()
+  $("#id_sh").val(info_sh)
+</script>
 {%endblock%}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from ..models import *
 
+#未报账
 @login_required
 def manage_wbz(request):
 	user = request.user
@@ -10,6 +11,7 @@ def manage_wbz(request):
 	context['notes'] = notes
 	return render(request , 'note/management/manage_wbz.html' , context)
 
+#售后
 @login_required
 def manage_sh(request):
 	user = request.user
@@ -23,6 +25,7 @@ def manage_sh(request):
 	context['notes'] = customers
 	return render(request , 'note/management/manage_sh.html' , context)
 
+#类型
 @login_required
 def manage_lx(request):
 	user = request.user
@@ -36,6 +39,7 @@ def manage_lx(request):
 	context['notes'] = unit_types
 	return render(request , 'note/management/manage_lx.html' , context)
 
+#型号
 @login_required
 def manage_xh(request):
 	user = request.user

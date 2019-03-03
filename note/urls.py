@@ -6,6 +6,7 @@ urlpatterns = [
 		path('wbz_dj' , wbz_dj , name = 'wbz_dj'),
 		path('wbz_jsj' , wbz_jsj , name = 'wbz_jsj'),
 		path('wbz_wl' , wbz_wl , name = 'wbz_wl'),
+		path('ybz_all' , ybz_all , name = 'ybz_all'),
 		#管理页面
 		path('manage_wbz' , manage_wbz , name = 'manage_wbz'),
 		path('manage_sh' , manage_sh , name = 'manage_sh'),
@@ -21,4 +22,10 @@ urlpatterns = [
 		path('ajax_get_unit_models' , ajax_get_unit_models , name = 'ajax_get_unit_models'),
 		#报账
 		path('bz' , bz , name = 'bz'),
+		#打印页面
+		path('dy' , dy , name = 'dy'),
+		#下载页面
+		path('download' , download , name = 'download'),
+		#报账界面ajax获取notes
+		path('ajax_get_notes' , ajax_get_notes , name = 'ajax_get_notes'),
 ]
