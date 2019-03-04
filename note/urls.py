@@ -16,9 +16,12 @@ urlpatterns = [
 		path('ybz_xx' , ybz_xx , name = 'ybz_xx'),
 		#管理页面
 		path('manage_wbz' , manage_wbz , name = 'manage_wbz'),
+		path('manage_ybz' , manage_ybz , name = 'manage_ybz'),
 		path('manage_sh' , manage_sh , name = 'manage_sh'),
 		path('manage_lx' , manage_lx , name = 'manage_lx'),
 		path('manage_xh' , manage_xh , name = 'manage_xh'),
+		#删除记录
+		path('delete_note' , delete_note , name = 'delete_note'),
 		#新增记录
 		path('new_note' , new_note , name = 'new_note'),
 		path('new_customer' , new_customer , name = 'new_customer'),

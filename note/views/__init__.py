@@ -3,6 +3,7 @@ from .manage import *
 from .new_note import *
 from .report import *
 from .ybz import *
+from .edit import *
 from ..models import Note
 
 def ajax_get_notes_detail(request):

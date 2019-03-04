@@ -1,8 +1,5 @@
 {%extends 'note/management/base_manage.html'%}
 {%load staticfiles%}
-{%block head%}
-<link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
-{%endblock%}
 {%block active_manage_sh%}
 class="active"
 {%endblock%}
@@ -54,13 +51,4 @@ class="active"
           </div>
         </div>
       </div>
-{%endblock%}
-{%block script%}
-<script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
-<script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-  })
-</script>
 {%endblock%}

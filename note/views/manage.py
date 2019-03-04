@@ -11,6 +11,15 @@ def manage_wbz(request):
 	context['notes'] = notes
 	return render(request , 'note/management/manage_wbz.html' , context)
 
+#已报账
+@login_required
+def manage_ybz(request):
+	user = request.user
+	notes = Note.objects.filter(bz = True , owner = user)
+	context = {}
+	context['notes'] = notes
+	return render(request , 'note/management/manage_ybz.html' , context)
+
 #售后
 @login_required
 def manage_sh(request):

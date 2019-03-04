@@ -11,7 +11,10 @@
                   <td>{{note.fs}}</td>
                   <td>{{note.zt}}</td>
                   <td>{{note.hj}}</td>
+                  <td>
+                    <button class="btn btn-link btn-xs show_detail" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">详细</button>
+                  </td>
                 </tr>
                 {%empty%}
-                <p>没有记录</p>
+                没有记录
                 {%endfor%}

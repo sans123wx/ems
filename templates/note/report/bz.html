@@ -2,6 +2,7 @@
 {%load staticfiles%}
 {%block head%}
 <link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+<link rel="stylesheet" href="{%static 'note/my_css/table_width.css'%}">
 {%endblock%}
 {%block navbar%}
 <li class="active"><a href="{%url 'bz'%}">报账</a></li>
@@ -104,6 +105,7 @@
                   <th>处理</th>
                   <th>状态</th>
                   <th>合计</th>
+                  <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -120,9 +122,10 @@
                   <td>{{note.fs}}</td>
                   <td>{{note.zt}}</td>
                   <td>{{note.hj}}</td>
+                  <td>
+                    <button class="btn btn-link btn-xs show_detail" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">详细</button>
+                  </td>
                 </tr>
-                {%empty%}
-                <p>没有记录</p>
                 {%endfor%}
                 </tbody>
               </table>
@@ -133,70 +136,30 @@
                 <button class="btn btn-info" onclick="return report_waring()">报账</button>
             </div>
           </div>
-        </div>
-        
-    </div>
+        </div>     
+      </div>
       </div>
 </form>
+<!-- 模态框 -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal_detail">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+            <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 {%endblock%}
 {%block script%}
 <script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
 <script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
-<!-- 设置表格 -->
-<script>
-  $(function () {
-    $('#example1').DataTable({
-      'paging'      : false,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : false,
-      'info'        : false,
-      'autoWidth'   : false
-    })
-  })
-</script>
-<!-- ajax获取数据 -->
-<script type="text/javascript">
-  $("li.forchoice").click(function(){
-      var customer_id = $(this).val()
-      $(".active:not(.paginate_button)").removeClass('active')
-      $(this).addClass('active')
-      $(this).parent().parent().addClass('active')
-      $.ajax({
-        url:"{%url 'ajax_get_notes'%}",
-        data:{"customer_id":customer_id},
-        success:function(data){
-          $("tbody").html(data);
-          var context = $("li.active span.forname").text();
-          $("h1 small").text(context);
-          var info_sh = $("li.active.forchoice").val();
-          $("#id_sh").val(info_sh);
-          console.log($("#id_sh").val())
-        }
-      })
-  }
-    )
-</script>
-<!-- 提交警告 -->
-<script type="text/javascript">
-  function report_waring(){
-    var info = confirm("是否确定报账?");
-    var title_value = $("#id_title").val();
-    var date_value = $("#id_date").val();
-    if(title_value && date_value){
-      return info;
-    }
-    else{
-      alert('请填写时间和名称');
-      return false;
-    }
-  }
-</script>
-<!-- 初始化 -->
-<script type="text/javascript">
-  var context = $("li.active span.forname").text()
-  $("h1 small").text(context)
-  var info_sh = $("li.active.forchoice").val()
-  $("#id_sh").val(info_sh)
-</script>
+<script src="{%static 'note/my_js/report.js'%}"></script>
 {%endblock%}

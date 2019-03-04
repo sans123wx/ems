@@ -1,13 +1,13 @@
 {%extends 'note/management/base_manage.html'%}
 {%load staticfiles%}
-{%block active_manage_wbz%}
+{%block active_manage_ybz%}
 class="active"
 {%endblock%}
 {%block content-header-1%}
 我的记录
 {%endblock%}
 {%block content-header-1-content%}
-未报账记录
+已报账记录
 {%endblock%}
 {%block content-header%}
 管理查看
@@ -16,7 +16,7 @@ class="active"
 我的记录
 {%endblock%}
 {%block content-header-2-content%}
-未报账
+已报账
 {%endblock%}
 {%block content%}
 <div class="row">
@@ -42,7 +42,6 @@ class="active"
                   <th>状态</th>
                   <th>合计</th>
                   <th>操作</th>
-
                 </tr>
                 </thead>
                 <tbody>
@@ -60,8 +59,6 @@ class="active"
                   <td>{{note.hj}}</td>
                   <td>
                     <button class="btn btn-link btn-xs show_detail" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">详细</button>
-                    <button class="btn btn-link btn-xs edit" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">修改</button>
-                    <a href="{%url 'delete_note'%}?note_id={{note.id}}" class="btn btn-xs" onclick="return delete_waring()">删除</a>
                   </td>
                 </tr>
                 {%endfor%}
@@ -89,7 +86,4 @@ class="active"
     </div>
   </div>
 </div>
-{%endblock%}
-{%block script_page%}
-<script src="{%static 'note/my_js/manage_wbz.js'%}"></script>
 {%endblock%}

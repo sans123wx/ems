@@ -1,5 +1,9 @@
 {%extends 'note/base.html'%}
 {%load staticfiles%}
+{%block head%}
+<link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+<link rel="stylesheet" href="{%static 'note/my_css/table_width.css'%}">
+{%endblock%}
 {%block navbar%}
 <li class="active"><a href="{%url 'manage_wbz'%}">查看修改</a></li>
 <li ><a href="{%url 'new_note'%}">新增记录</a></li>
@@ -9,8 +13,15 @@
 {%endblock%}
 {%block left_navbar%}
 <li {%block active_manage_wbz%}{%endblock%}><a href="{%url 'manage_wbz'%}"><i class="fa fa-table"></i> <span>未报账记录</span></a></li>
-<li {%block active_manage_ybz%}{%endblock%}><a href="#"><i class="fa fa-table"></i> <span>已报账记录</span></a></li>
+<li {%block active_manage_ybz%}{%endblock%}><a href="{%url 'manage_ybz'%}"><i class="fa fa-table"></i> <span>已报账记录</span></a></li>
 <li {%block active_manage_sh%}{%endblock%}><a href="{%url 'manage_sh'%}"><i class="fa fa-table"></i> <span>售后单位</span></a></li>
 <li {%block active_manage_lx%}{%endblock%}><a href="{%url 'manage_lx'%}"><i class="fa fa-table"></i> <span>设备类型</span></a></li>
 <li {%block active_manage_xh%}{%endblock%}><a href="{%url 'manage_xh'%}"><i class="fa fa-table"></i> <span>设备型号</span></a></li>
+{%endblock%}
+{%block script%}
+<script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+<script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
+<script src="{%static 'note/my_js/initialize.js'%}"></script>
+{%block script_page%}
+{%endblock%}
 {%endblock%}
