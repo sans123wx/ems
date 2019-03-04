@@ -35,4 +35,6 @@ urlpatterns = [
 		path('download' , download , name = 'download'),
 		#报账界面ajax获取notes
 		path('ajax_get_notes' , ajax_get_notes , name = 'ajax_get_notes'),
+		#获取记录详细信息
+		path('ajax_get_notes_detail' , ajax_get_notes_detail , name = 'ajax_get_notes_detail'),
 ]

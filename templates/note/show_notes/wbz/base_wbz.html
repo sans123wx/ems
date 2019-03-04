@@ -2,6 +2,7 @@
 {%load staticfiles%}
 {%block head%}
 <link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+<link rel="stylesheet" href="{%static 'note/my_css/table_width.css'%}">
 {%endblock%}
 {%block navbar%}
 <li class='active'><a href="{%url 'wbz_all'%}">未报账部分</a></li>
@@ -26,7 +27,7 @@
 首页
 {%endblock%}
 {%block content-header-href%}
-{%url 'ybz_all'%}
+{%url 'wbz_all'%}
 {%endblock%}
 {%block content-header-2%}
 未报账
@@ -40,8 +41,7 @@
               <h3 class="box-title">{%block table_title%}{%endblock%}</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
+            <div class="box-body table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -71,32 +71,35 @@
                   <td>{{note.fs}}</td>
                   <td>{{note.zt}}</td>
                   <td>{{note.hj}}</td>
-                  <td>详细</td>
+                  <td><button class="btn btn-link btn-xs show_detail" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">详细</button></td>
                 </tr>
-                {%empty%}
-                没有记录
                 {%endfor%}
                 </tbody>
-              </table>>
-              </div>
+              </table>
             </div>
           </div>
         </div>
       </div>
+<!-- 模态框 -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal_detail">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+            <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
 {%endblock%}
 {%block script%}
 <script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
 <script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable({
-      'paging'      : true,
-      'lengthChange': true,
-      'searching'   : true,
-      'ordering'    : false,
-      'info'        : false,
-      'autoWidth'   : true
-    })
-  })
-</script>
+<script src="{%static 'note/my_js/initialize.js'%}"></script>
 {%endblock%}

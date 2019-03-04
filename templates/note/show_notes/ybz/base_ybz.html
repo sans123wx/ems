@@ -2,6 +2,7 @@
 {%load staticfiles%}
 {%block head%}
 <link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+<link rel="stylesheet" href="{%static 'note/my_css/table_width.css'%}">
 {%endblock%}
 {%block navbar%}
 <li><a href="{%url 'wbz_all'%}">未报账部分</a></li>
@@ -39,9 +40,7 @@
             <div class="box-header">
               <h3 class="box-title">{%block table_title%}{%endblock%}</h3>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
+            <div class="box-body table-responsive">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -59,13 +58,10 @@
                   <td>{{note.sh}}</td>
                   <td>{{note.sh.group.name}}</td>
                 </tr>
-                {%empty%}
-                没有记录
                 {%endfor%}
                 </tbody>
               </table>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -73,16 +69,5 @@
 {%block script%}
 <script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
 <script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable({
-      'paging'      : true,
-      'lengthChange': true,
-      'searching'   : true,
-      'ordering'    : false,
-      'info'        : false,
-      'autoWidth'   : true
-    })
-  })
-</script>
+<script src="{%static 'note/my_js/initialize.js'%}"></script>
 {%endblock%}
