@@ -38,6 +38,7 @@
       <!-- 小屏幕折叠部分 -->
        <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <!-- 导航栏内容 -->
         	{%block navbar%}{%endblock%}
           <!-- 用户管理 -->
           {%if request.user.is_authenticated%}
@@ -109,7 +110,7 @@
         </div>
       </div>
       {%endif%}
-      <!-- 导航部分 -->
+      <!-- 左边导航部分 -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">{%block left_navbar_header%}{%endblock%}</li>
         <!-- 选项 -->
@@ -128,7 +129,7 @@
         <small>{%block content-header-1-content%}{%endblock%}</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="{%url 'wbz_all'%}"><i class="fa fa-dashboard"></i> {%block content-header%}{%endblock%}</a></li>
+        <li><a href="{%block sy%}{%endblock%}"><i class="fa fa-dashboard"></i> {%block content-header%}{%endblock%}</a></li>
         <li><a href="{%block content-header-href%}{%endblock%}">{%block content-header-2%}{%endblock%}</a></li>
         <li class="active">{%block content-header-2-content%}{%endblock%}</li>
       </ol>

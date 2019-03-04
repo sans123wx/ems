@@ -1,0 +1,111 @@
+{%extends 'note/base.html'%}
+{%load staticfiles%}
+{%block head%}
+<link rel="stylesheet" href="{%static 'note/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css'%}">
+{%endblock%}
+{%block navbar%}
+<li><a href="{%url 'wbz_all'%}">未报账部分</a></li>
+<li class='active'><a href="{%url 'ybz_all'%}">已报账部分</a></li>
+{%endblock%}
+{%block left_navbar_header%}
+部门
+{%endblock%}
+{%block left_navbar%}
+<li {%block active_all%}{%endblock%}><a href="{%url 'ybz_all'%}"><i class="fa fa-table"></i> <span>全部部门</span></a></li>
+<li {%block active_dj%}{%endblock%}><a href="{%url 'ybz_dj'%}"><i class="fa fa-table"></i> <span>电教部</span></a></li>
+<li {%block active_jsj%}{%endblock%}><a href="{%url 'ybz_jsj'%}"><i class="fa fa-table"></i> <span>计算机部</span></a></li>
+<li {%block active_wl%}{%endblock%}><a href="{%url 'ybz_wl'%}"><i class="fa fa-table"></i> <span>网络信息部</span></a></li>
+{%endblock%}
+{%block content-header-1%}
+已报账
+{%endblock%}
+{%block content-header-1-content%}
+详细记录
+{%endblock%}
+{%block sy%}
+{%url 'wbz_all'%}
+{%endblock%}
+{%block content-header%}
+首页
+{%endblock%}
+{%block content-header-href%}
+{%url 'ybz_all'%}
+{%endblock%}
+{%block content-header-2%}
+已报账
+{%endblock%}
+{%block content-header-2-content%}
+详细记录
+{%endblock%}
+{%block content%}
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- 数据表格 -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">报账详细记录</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="table-responsive">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>类型</th>
+                  <th>型号</th>
+                  <th>故障</th>
+                  <th>单价</th>
+                  <th>数量</th>
+                  <th>地点</th>
+                  <th>处理</th>
+                  <th>状态</th>
+                  <th>合计</th>
+                  <th>操作</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {%for note in notes%}
+                <tr>
+                  <td>{{note.date}}</td>
+                  <td>{{note.lb}}</td>
+                  <td>{{note.xh}}</td>
+                  <td>{{note.gz}}</td>
+                  <td>{{note.jg}}</td>
+                  <td>{{note.sl}}</td>
+                  <td>{{note.dd}}</td>
+                  <td>{{note.fs}}</td>
+                  <td>{{note.zt}}</td>
+                  <td>{{note.hj}}</td>
+                  <td>操作</td>
+
+                </tr>
+                {%empty%}
+                没有记录
+                {%endfor%}
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{%endblock%}
+{%block script%}
+<script src="{%static 'note/bower_components/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+<script src="{%static 'note/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js'%}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : true
+    })
+  })
+</script>
+{%endblock%}
