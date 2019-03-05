@@ -14,7 +14,7 @@
       url:"/ajax_get_notes_detail",
       data:{'note_id':note_id},
       success:function(data){
-        $("div.modal-body").html(data)
+        $("div.modal-content").html(data)
       }
     })
   })

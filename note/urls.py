@@ -20,6 +20,11 @@ urlpatterns = [
 		path('manage_sh' , manage_sh , name = 'manage_sh'),
 		path('manage_lx' , manage_lx , name = 'manage_lx'),
 		path('manage_xh' , manage_xh , name = 'manage_xh'),
+		#修改记录
+		path('edit_note' , edit_note , name = 'edit_note'),
+		path('edit_sh' , edit_sh , name = 'edit_sh'),
+		path('edit_lx' , edit_lx , name = 'edit_lx'),
+		path('edit_xh' , edit_xh , name = 'edit_xh'),
 		#删除记录
 		path('delete_note' , delete_note , name = 'delete_note'),
 		#新增记录

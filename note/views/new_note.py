@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from ..models import *
 from ..forms import *
+from .functions import edit_queryset
 
 @login_required
 def new_note(request):
@@ -20,22 +21,7 @@ def new_note(request):
 				return render(request , 'note/404.html')
 	else:
 		form = NoteForm()
-		if groups:
-			for i in range(len(groups)):
-				if i == 0:
-					form.fields['sh'].queryset = Customer.objects.filter(group = groups[i])
-				else:
-					form.fields['sh'].queryset = form.fields['sh'].queryset.union(Customer.objects.filter(group = groups[i]))
-			for i in range(len(groups)):
-				if i == 0:
-					form.fields['lb'].queryset = Unit_type.objects.filter(sh__group = groups[i])
-				else:
-					form.fields['lb'].queryset = form.fields['lb'].queryset.union(Unit_type.objects.filter(sh__group = groups[i]))
-			for i in range(len(groups)):
-				if i == 0:
-					form.fields['xh'].queryset = Unit_model.objects.filter(lx__sh__group = groups[i])
-				else:
-					form.fields['xh'].queryset = form.fields['xh'].queryset.union(Unit_model.objects.filter(lx__sh__group = groups[i]))
+		edit_queryset(owner , form)
 		context = {}
 		context['form'] = form
 		return render(request , 'note/new_note/new_note.html' , context)

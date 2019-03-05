@@ -1,6 +1,6 @@
 {%extends 'note/management/base_manage.html'%}
 {%load staticfiles%}
-{%block active_manage_lx%}
+{%block active_manage_xh%}
 class="active"
 {%endblock%}
 {%block content-header-1%}
@@ -45,7 +45,9 @@ class="active"
                   <td>{{note.lx.title}}</td>
                   <td>{{note.lx.sh.title}}</td>
                   <td>{{note.lx.sh.group.name}}</td>
-                  <td>修改</td> 
+                  <td>
+                    <button class="btn btn-link btn-xs edit_xh" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">修改</button>
+                  </td> 
                 </tr>
                 {%endfor%}
                 </tbody>
@@ -55,4 +57,11 @@ class="active"
           </div>
         </div>
       </div>
+      <!-- 模态框 -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal_detail">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 {%endblock%}

@@ -2,3 +2,13 @@
    var info = confirm("是否确定删除?");
    return info
   };
+ $("button.edit").click(function(){
+ 	var note_id = $(this).val()
+ 	$.ajax({
+ 		url:"/edit_note",
+ 		data:{'note_id':note_id},
+ 		success:function(data){
+ 			$("div.modal-content").html(data)
+ 		}
+ 	})
+ })

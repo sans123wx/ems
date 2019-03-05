@@ -1,6 +1,7 @@
 import datetime
 from ..models import *
-from django.contrib.auth.models import Group
+from ..forms import *
+from django.contrib.auth.models import Group , User
 from openpyxl import Workbook
 
 #获取所有有报账权限的组
@@ -32,3 +33,18 @@ def make_excel(notes_id , customer_id):
 		ws.append([note.date , note.lb.title , note.xh.title , note.jg , note.sl , note.hj , note.dd , note.sh.title])
 	wb.save(filename)
 	return filename
+
+#设置可访问表单
+def edit_queryset(user , form):
+	groups = user.groups.all()
+	if groups:
+		for i in range(len(groups)):
+				if i == 0:
+					form.fields['sh'].queryset = Customer.objects.filter(group = groups[i])
+					form.fields['lb'].queryset = Unit_type.objects.filter(sh__group = groups[i])
+					form.fields['xh'].queryset = Unit_model.objects.filter(lx__sh__group = groups[i])
+				else:
+					form.fields['sh'].queryset = form.fields['sh'].queryset.union(Customer.objects.filter(group = groups[i]))
+					form.fields['lb'].queryset = form.fields['lb'].queryset.union(Unit_type.objects.filter(sh__group = groups[i]))
+					form.fields['xh'].queryset = form.fields['xh'].queryset.union(Unit_model.objects.filter(lx__sh__group = groups[i]))
+					

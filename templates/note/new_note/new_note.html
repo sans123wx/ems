@@ -48,28 +48,5 @@ class='active'
 {%endblock%}
 {%block script%}
 <script src="{%static 'note/bower_components/fastclick/lib/fastclick.js'%}"></script>
-<script type="text/javascript">
-  $('#id_sh').change(function(){
-    var customer_id = $(this).val();
-    $.ajax({
-      url:"{%url 'ajax_get_unit_types'%}",
-      data:{'customer_id':customer_id},
-      success:function(data){
-        $('#id_lb').html(data)
-      }
-
-    })
-  })
-  $('#id_lb').change(function(){
-    var unit_type_id = $(this).val();
-    $.ajax({
-      url:"{%url 'ajax_get_unit_models'%}",
-      data:{'unit_type_id':unit_type_id},
-      success:function(data){
-        $('#id_xh').html(data)
-      }
-
-    })
-  })
-</script>
+<script src="{%static 'note/my_js/liandong.js'%}"></script>
 {%endblock%}

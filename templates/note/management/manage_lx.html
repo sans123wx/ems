@@ -43,7 +43,7 @@ class="active"
                   <td>{{note.title}}</td>
                   <td>{{note.sh.title}}</td>
                   <td>{{note.sh.group.name}}</td>
-                  <td>修改</td> 
+                  <td><button class="btn btn-link btn-xs edit_lx" type="button" data-toggle="modal" data-target="#modal_detail" value="{{note.id}}">修改</button></td> 
                 </tr>
                 {%endfor%}
                 </tbody>
@@ -53,4 +53,10 @@ class="active"
           </div>
         </div>
       </div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal_detail">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
 {%endblock%}
