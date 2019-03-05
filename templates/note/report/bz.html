@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{%static 'note/my_css/table_width.css'%}">
 {%endblock%}
 {%block navbar%}
-<li class="active"><a href="{%url 'bz'%}">报账</a></li>
+<li class="active bz_navbar"><a href="{%url 'bz'%}">报账</a></li>
 {%endblock%}
 {%block left_navbar_header%}
 售后单位
@@ -144,16 +144,6 @@
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="modal_detail">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-            <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">详细信息</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-      </div>
     </div>
   </div>
 </div>

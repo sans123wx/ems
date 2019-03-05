@@ -78,9 +78,9 @@ def new_unit_type(request):
 		if groups:
 				for i in range(len(groups)):
 					if i == 0:
-						form.fields['sh'].queryset = Unit_type.objects.filter(sh__group = groups[i])
+						form.fields['sh'].queryset = Customer.objects.filter(group = groups[i])
 					else:
-						form.fields['sh'].queryset = form.fields['sh'].queryset.union(Unit_type.objects.filter(sh__group = groups[i]))
+						form.fields['sh'].queryset = form.fields['sh'].queryset.union(Customer.objects.filter(group = groups[i]))
 		context = {}
 		context['form'] = form
 		return render(request , 'note/new_note/new_unit_type.html' , context)
@@ -103,9 +103,9 @@ def new_unit_model(request):
 		if groups:
 				for i in range(len(groups)):
 					if i == 0:
-						form.fields['lx'].queryset = Unit_model.objects.filter(lx__sh__group = groups[i])
+						form.fields['lx'].queryset = Unit_type.objects.filter(sh__group = groups[i])
 					else:
-						form.fields['lx'].queryset = form.fields['lx'].queryset.union(Unit_model.objects.filter(lx__sh__group = groups[i]))
+						form.fields['lx'].queryset = form.fields['lx'].queryset.union(Unit_type.objects.filter(sh__group = groups[i]))
 		context = {}
 		context['form'] = form
 		return render(request , 'note/new_note/new_unit_model.html' , context)

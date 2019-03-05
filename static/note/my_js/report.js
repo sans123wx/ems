@@ -1,6 +1,6 @@
   $("li.forchoice").click(function(){
       var customer_id = $(this).val()
-      $(".active:not(.paginate_button,.gi)").removeClass('active')
+      $(".active:not(.paginate_button,.gi,.bz_navbar)").removeClass('active')
       $(this).addClass('active')
       $(this).parent().parent().addClass('active')
       $.ajax({
@@ -45,7 +45,7 @@
       url:"/ajax_get_notes_detail",
       data:{'note_id':note_id},
       success:function(data){
-        $("div.modal-body").html(data)
+        $("div.modal-content").html(data)
       }
     })
   });
