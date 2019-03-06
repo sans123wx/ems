@@ -1,14 +1,19 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from ..models import *
+from django.db.models import *
 
 #未报账
 @login_required
 def manage_wbz(request):
 	user = request.user
 	notes = Note.objects.filter(bz = False , owner = user)
+	total_p = notes.aggregate(total_p = Sum('hj'))['total_p']
+	unit_types = Unit_type.objects.filter(note__owner = user , note__bz = False).annotate(ut_p = Sum('note__hj'))
 	context = {}
 	context['notes'] = notes
+	context['total_p'] = total_p
+	context['unit_types'] = unit_types
 	return render(request , 'note/management/manage_wbz.html' , context)
 
 #已报账
@@ -16,8 +21,12 @@ def manage_wbz(request):
 def manage_ybz(request):
 	user = request.user
 	notes = Note.objects.filter(bz = True , owner = user)
+	total_p = notes.aggregate(total_p = Sum('hj'))['total_p']
+	unit_types = Unit_type.objects.filter(note__owner = user , note__bz = True).annotate(ut_p = Sum('note__hj'))
 	context = {}
 	context['notes'] = notes
+	context['total_p'] = total_p
+	context['unit_types'] = unit_types
 	return render(request , 'note/management/manage_ybz.html' , context)
 
 #售后

@@ -10,5 +10,17 @@ class='active'
 网络部
 {%endblock%}
 {%block table_title%}
-网络部未报账记录
+<p>统计信息</p>
+<div class="row">
+	<div class="col-sm-12 hidden-xs">
+		<ul class="list-inline">
+			<li >总计：{{total_p}}（元）</li>
+			{%for unit_type in unit_types%}
+			<li >
+			{{unit_type.title}}:{{unit_type.ut_p}}（元）
+			</li>
+	{%endfor%}
+</ul>
+	</div>
+</div>
 {%endblock%}

@@ -44,7 +44,19 @@
           <!-- 数据表格 -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">报账详细记录</h3>
+              <h3 class="box-title">
+                <p>统计信息</p>
+                <div class="row">
+                  <div class="col-sm-12 hidden-xs">
+                    <ul class="list-inline">
+                      <li>总计:{{total_p}}（元）</li>
+                      {%for unit_type in unit_types%}
+                      <li>{{unit_type}}:{{unit_type.ut_p}}（元）</li>
+                      {%endfor%}
+                    </ul>
+                  </div>
+                </div>
+              </h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

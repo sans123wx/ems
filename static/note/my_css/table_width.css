@@ -1,3 +1,6 @@
 th,td{
 	white-space: nowrap;
 }
+ul.list-inline{
+	font-size: 0.8em;
+}
