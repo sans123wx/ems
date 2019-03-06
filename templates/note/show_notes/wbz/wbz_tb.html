@@ -11,12 +11,13 @@ class='active'
 {%endblock%}
 {%block content%}
 <div class="row">
-	<div class="col-sm-6">
-		<div class="box box-primary">
+  <!-- 所有部门 -->
+  <div class="col-sm-6">
+    <div class="box box-primary">
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">全部部门</h3>
+              <h3 class="box-title">全部门费用占比</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -25,210 +26,251 @@ class='active'
               </div>
             </div>
             <div class="box-body">
-              <div id="donut-chart" style="height: 200px;"></div>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">United States of America
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-                <li><a href="#">China
-                  <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-              </ul>
-            </div>
-          </div>
-          		<div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Donut Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="donut-chart2" style="height: 200px;"></div>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">United States of America
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-                <!-- <li><a href="#">China
-                  <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li> -->
-              </ul>
-            </div>
-          </div>
-	</div>
-	<div class="col-sm-6">
-		<div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Donut Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="donut-chart3" style="height: 200px;"></div>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">United States of America
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-                <li><a href="#">China
-                  <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-              </ul>
-            </div>
-          </div>
-		<div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Donut Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="donut-chart4" style="height: 200px;"></div>
-            </div>
-            <div class="box-footer no-padding">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">United States of America
-                  <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                <li><a href="#">India <span class="pull-right text-green"><i class="fa fa-angle-up"></i> 4%</span></a>
-                </li>
-                <li><a href="#">China
-                  <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-              </ul>
-            </div>
-          </div>
-	</div>
+                <div id="container" style="height: 300px;"></div>            
+  </div>
 </div>
-         
+</div>
+<!-- 电教部 -->
+<div class="col-sm-6">
+    <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">电教部设备费用占比</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+                <div id="container_dj" style="height: 300px;"></div>            
+  </div>
+</div>
+</div>
+<!-- 计算机部 -->
+<div class="col-sm-6">
+    <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">计算机部设备费用占比</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+                <div id="container_jsj" style="height: 300px;"></div>            
+  </div>
+</div>
+</div>
+<!-- 网络信息部 -->
+<div class="col-sm-6">
+    <div class="box box-primary">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">网络信息部设备费用占比</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+                <div id="container_wl" style="height: 300px;"></div>            
+  </div>
+</div>
+</div>
+</div>
 {%endblock%}
 {%block script_page%}
 <script src="{%static 'note/bower_components/fastclick/lib/fastclick.js'%}"></script>
 <script src="{%static 'note/bower_components/Flot/jquery.flot.js'%}"></script>
 <script src="{%static 'note/bower_components/Flot/jquery.flot.resize.js'%}"></script>
 <script src="{%static 'note/bower_components/Flot/jquery.flot.pie.js'%}"></script>
+<script src="{%static 'note/highcharts/highcharts.js'%}"></script>
 <script type="text/javascript">
-	    var donutData = [
-      { label: 'Series2', data: 1112.0},
-      { label: 'Series3', data: 202.0},
-      { label: 'Series4', data: 510.0 }
-    ]
-    $.plot('#donut-chart', donutData, {
-      series: {
+  // 所有部门
+	    Highcharts.chart('container', {
+    chart: {
+        type: 'pie'
+    },
+    title:{
+      text:null,
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'},
+    plotOptions: {
         pie: {
-          show       : true,
-          radius     : 1,
-          innerRadius: 0.5,
-          label      : {
-            show     : true,
-            radius   : 2 / 3,
-            formatter: labelFormatter,
-            threshold: 0.1
-          }
-
+            // 可以点击激活
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                distance: -20,
+                format: '{point.name}: {point.percentage:.1f} %',
+            },
+            showInLegend: true,
         }
+    },
+    series: [{
+        name: '比例',
+        colorByPoint: true,
+        innerSize: '50%',
+        data: [
+          {%for group in groups%}
+          {
+            name:"{{group.name}}",
+            y:{{group.group_p}},
+          },
+          {%endfor%}
+       ]
+    }],
+    legend:{
+        enabled:true,
+        labelFormat: '{name}: {y}（元）',
       },
-      legend: {
-        show: true
-      }
-    });
-    var donutData2 = [
-      { label: 'Series2', data: 1112.0},
-      { label: 'Series3', data: 202.0},
-      { label: 'Series4', data: 510.0 }
-    ]
-    $.plot('#donut-chart2', donutData, {
-      series: {
+    credits:{
+      enabled : false,
+    }
+});
+  // 电教部
+  Highcharts.chart('container_dj', {
+    chart: {
+        type: 'pie'
+    },
+    title:{
+      text:null,
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'},
+    plotOptions: {
         pie: {
-          show       : true,
-          radius     : 1,
-          innerRadius: 0.5,
-          label      : {
-            show     : true,
-            radius   : 2 / 3,
-            formatter: labelFormatter,
-            threshold: 0.1
-          }
-
+            // 可以点击激活
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                distance: -20,
+                format: '{point.name}: {point.percentage:.1f} %',
+            },
+            showInLegend: true,
         }
+    },
+    series: [{
+        name: '比例',
+        colorByPoint: true,
+        innerSize: '50%',
+        data: [
+          {%for unit_type in unit_types_dj%}
+          {
+            name:"{{unit_type.title}}",
+            y:{{unit_type.ut_p}},
+          },
+          {%endfor%}
+       ]
+    }],
+    legend:{
+        enabled:true,
+        labelFormat: '{name}: {y}（元）',
       },
-      legend: {
-        show: true
-      }
-    });
-        var donutData3 = [
-      { label: 'Series2', data: 1112.0},
-      { label: 'Series3', data: 202.0},
-      { label: 'Series4', data: 510.0 }
-    ]
-    $.plot('#donut-chart3', donutData, {
-      series: {
+    credits:{
+      enabled : false,
+    }
+});
+// 计算机部
+Highcharts.chart('container_jsj', {
+    chart: {
+        type: 'pie'
+    },
+    title:{
+      text:null,
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'},
+    plotOptions: {
         pie: {
-          show       : true,
-          radius     : 1,
-          innerRadius: 0.5,
-          label      : {
-            show     : true,
-            radius   : 2 / 3,
-            formatter: labelFormatter,
-            threshold: 0.1
-          }
-
+            // 可以点击激活
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                distance: -20,
+                format: '{point.name}: {point.percentage:.1f} %',
+            },
+            showInLegend: true,
         }
+    },
+    series: [{
+        name: '比例',
+        colorByPoint: true,
+        innerSize: '50%',
+        data: [
+          {%for unit_type in unit_types_jsj%}
+          {
+            name:"{{unit_type.title}}",
+            y:{{unit_type.ut_p}},
+          },
+          {%endfor%}
+       ]
+    }],
+    legend:{
+        enabled:true,
+        labelFormat: '{name}: {y}（元）',
       },
-      legend: {
-        show: true
-      }
-    });
-        var donutData4 = [
-      { label: 'Series2', data: 1112.0},
-      { label: 'Series3', data: 202.0},
-      { label: 'Series4', data: 510.0 }
-    ]
-    $.plot('#donut-chart4', donutData, {
-      series: {
+    credits:{
+      enabled : false,
+    }
+});
+// 网络信息部
+Highcharts.chart('container_wl', {
+    chart: {
+        type: 'pie'
+    },
+    title:{
+      text:null,
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'},
+    plotOptions: {
         pie: {
-          show       : true,
-          radius     : 1,
-          innerRadius: 0.5,
-          label      : {
-            show     : true,
-            radius   : 2 / 3,
-            formatter: labelFormatter,
-            threshold: 0.1
-          }
-
+            // 可以点击激活
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                distance: -20,
+                format: '{point.name}: {point.percentage:.1f} %',
+            },
+            showInLegend: true,
         }
+    },
+    series: [{
+        name: '比例',
+        colorByPoint: true,
+        innerSize: '50%',
+        data: [
+          {%for unit_type in unit_types_wl%}
+          {
+            name:"{{unit_type.title}}",
+            y:{{unit_type.ut_p}},
+          },
+          {%endfor%}
+       ]
+    }],
+    legend:{
+        enabled:true,
+        labelFormat: '{name}: {y}（元）',
       },
-      legend: {
-        show: true
-      }
-    });
-      function labelFormatter(label, series) {
-    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
-      + label
-      + '<br>'
-      + Math.round(series.percent) + '%</div>'
-  }
+    credits:{
+      enabled : false,
+    }
+});
 </script>
 {%endblock%}
