@@ -7,6 +7,8 @@ urlpatterns = [
 		path('wbz_dj' , wbz_dj , name = 'wbz_dj'),
 		path('wbz_jsj' , wbz_jsj , name = 'wbz_jsj'),
 		path('wbz_wl' , wbz_wl , name = 'wbz_wl'),
+		#未报账图表
+		path('wbz_tb' , wbz_tb , name = 'wbz_tb'),
 		#已报账
 		path('ybz_all' , ybz_all , name = 'ybz_all'),
 		path('ybz_dj' , ybz_dj , name = 'ybz_dj'),

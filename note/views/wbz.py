@@ -43,3 +43,11 @@ def wbz_wl(request):
 	context['unit_types'] = unit_types
 	context['total_p'] = total_p
 	return render(request , 'note/show_notes/wbz/wbz_wl.html' , context)
+
+def wbz_tb(request):
+	groups = Group.objects.filter(customer__note__bz = False).annotate(group_p = Sum('customer__note__hj'))
+	total_p_all = groups.aggregate(total_p = Sum('group_p'))['total_p']
+	context = {}
+	context['groups'] = groups
+	context['total_p'] = total_p_all
+	return render(request , 'note/show_notes/wbz/wbz_tb.html' , context)
