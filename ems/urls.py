@@ -24,4 +24,6 @@ urlpatterns = [
     path('' , include('note.urls')),
     path('login' , login , name = 'login'),
     path('logout' , logout_view , name = 'logout'),
+    path('ckeditor' , include('ckeditor_uploader.urls')),
+    path('items' , include('items.urls')),
 ] + static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
