@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from ..models import *
 from django.db.models import *
@@ -70,3 +71,15 @@ def manage_xh(request):
 	context = {}
 	context['notes'] = unit_models
 	return render(request , 'note/management/manage_xh.html' , context)
+
+#密码
+@login_required
+def manage_mm(request):
+	user = request.user
+	if request.method == 'POST':
+		psword = request.POST.get('password')
+		user.set_password(psword)
+		user.save()
+		return redirect(reverse('login'))
+	else:
+		return render(request , 'note/management/manage_mm.html')

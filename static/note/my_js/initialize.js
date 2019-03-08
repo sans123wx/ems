@@ -3,7 +3,7 @@
       'paging'      : true,
       'lengthChange': false,
       'searching'   : true,
-      'ordering'    : false,
+      'ordering'    : true,
       'info'        : false,
       'autoWidth'   : true,
     })

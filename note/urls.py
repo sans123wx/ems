@@ -27,6 +27,8 @@ urlpatterns = [
 		path('edit_sh' , edit_sh , name = 'edit_sh'),
 		path('edit_lx' , edit_lx , name = 'edit_lx'),
 		path('edit_xh' , edit_xh , name = 'edit_xh'),
+		#修改密码
+		path('manage_mm' , manage_mm , name = 'manage_mm'),
 		#删除记录
 		path('delete_note' , delete_note , name = 'delete_note'),
 		#新增记录
